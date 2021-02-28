@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace LabWork_Arrays.Classes
 {
@@ -21,17 +22,18 @@ namespace LabWork_Arrays.Classes
                 {
                     Console.WriteLine($"Size of array is {N}");
                     int[] array = new int[N];
-                    string[] tokens = Regex.Split(sr.ReadLine(), @"(-?[0-9]+[\.]?[0-9]?)");
+
+                    var tokens = Regex.Split(sr.ReadLine(), @"(-?[0-9]+[\.]?[0-9]?)").Where(x => !string.IsNullOrWhiteSpace(x));
 
                     int currentArrayIndex = 0;
-                    foreach (string substring in tokens)
+                    foreach (var token in tokens)
                     {
                         if (currentArrayIndex >= array.Length)
                         {
                             Console.WriteLine("Array is full, so not all numbers were added.");
                             break;
                         }
-                        else if (int.TryParse(substring, out int number))
+                        else if (int.TryParse(token, out int number))
                         {
                             array[currentArrayIndex] = number;
                             currentArrayIndex++;
@@ -64,17 +66,17 @@ namespace LabWork_Arrays.Classes
             string input = Console.ReadLine();
             Console.WriteLine();
 
-            string[] tokens = Regex.Split(input, @"(-?[0-9]+[\.]?[0-9]?)");
+            var tokens = Regex.Split(input, @"(-?[0-9]+[\.]?[0-9]?)").Where(x => !string.IsNullOrWhiteSpace(x));
 
             int currentArrayIndex = 0;
-            foreach (string substring in tokens)
+            foreach (var token in tokens)
             {
                 if (currentArrayIndex >= array.Length)
                 {
                     Console.WriteLine("Array is full, so not all numbers were added.");
                     break;
                 }
-                else if (int.TryParse(substring, out int number))
+                else if (int.TryParse(token, out int number))
                 {
                     array[currentArrayIndex] = number;
                     currentArrayIndex++;
