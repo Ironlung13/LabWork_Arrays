@@ -54,7 +54,7 @@ namespace LabWork_Arrays.Classes
         {
             Console.Write("Enter size of array\n=> ");
             int N;
-            while (!int.TryParse(Console.ReadLine(), out N))
+            while (!int.TryParse(Console.ReadLine(), out N) || N <= 0)
             {
                 Console.Write("Invalid input. Try again\n=> ");
             }
