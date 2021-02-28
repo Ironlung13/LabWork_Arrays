@@ -21,7 +21,7 @@ namespace LabWork_Arrays.Classes
                 {
                     Console.WriteLine($"Size of array is {N}");
                     int[] array = new int[N];
-                    string[] tokens = Regex.Split(sr.ReadLine(), @"(-?[0-9]+[\.]?[0-9]+)");
+                    string[] tokens = Regex.Split(sr.ReadLine(), @"(-?[0-9]+[\.]?[0-9]?)");
 
                     int currentArrayIndex = 0;
                     foreach (string substring in tokens)
@@ -64,7 +64,7 @@ namespace LabWork_Arrays.Classes
             string input = Console.ReadLine();
             Console.WriteLine();
 
-            string[] tokens = Regex.Split(input, @"(-?[0-9]+[\,\.]?[0-9]+)");
+            string[] tokens = Regex.Split(input, @"(-?[0-9]+[\.]?[0-9]?)");
 
             int currentArrayIndex = 0;
             foreach (string substring in tokens)
