@@ -1,47 +1,59 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.IO;
+using System.Configuration;
 
 namespace LabWork_Arrays.Classes
 {
     public static class LinearArrays
     {
-        public static void Task1Variant6()
+        public static void Task1Variant6(string inputFilePath = @"D:\Text Files\EPAM_Arrays\input.io")
         {
-            using (FileStream stream = new FileStream())
-            Console.Write("Enter size of array(N <= 50)\n=> ");
-            int N;
-            while (!int.TryParse(Console.ReadLine(), out N) || N > 50)
+            using (StreamWriter sw = File.CreateText(inputFilePath))
             {
-                Console.Write("Invalid input. Try again\n=> ");
-            }
-            int[] array = new int[N];
-
-            Console.Write("Enter your numbers (integers) in a single line:\n=> ");
-            string input = Console.ReadLine();
-            Console.WriteLine();
-            string[] tokens = Regex.Split(input, @"(-?[0-9]+[\,\.]?[0-9]+)");
-
-            int currentArrayIndex = 0;
-            foreach (string substring in tokens)
-            {
-                if (currentArrayIndex >= array.Length)
+                Console.Write("Enter size of array(N <= 50)\n=> ");
+                int N;
+                while (!int.TryParse(Console.ReadLine(), out N) || N > 50)
                 {
-                    Console.WriteLine("Array is full, so not all numbers were added.");
-                    break;
+                    Console.Write("Invalid input. Try again\n=> ");
                 }
-                else if (int.TryParse(substring, out int number))
-                {
-                    array[currentArrayIndex] = number;
-                    currentArrayIndex++;
-                }
-            }
+                int[] array = new int[N];
 
-            Console.WriteLine($"Ammount of positive elements in array: {CountPositiveElementsInArray(array)}");
-            Console.ReadLine();
+                sw.Write("Size of array: ");
+                sw.WriteLine(N);
+
+                Console.Write("Enter your numbers (integers) in a single line:\n=> ");
+                string input = Console.ReadLine();
+                Console.WriteLine();
+
+                string[] tokens = Regex.Split(input, @"(-?[0-9]+[\,\.]?[0-9]+)");
+
+                int currentArrayIndex = 0;
+                foreach (string substring in tokens)
+                {
+                    if (currentArrayIndex >= array.Length)
+                    {
+                        Console.WriteLine("Array is full, so not all numbers were added.");
+                        break;
+                    }
+                    else if (int.TryParse(substring, out int number))
+                    {
+                        array[currentArrayIndex] = number;
+                        currentArrayIndex++;
+                    }
+                }
+
+                sw.Write("Array contained: ");
+                foreach (var number in array)
+                {
+                    sw.Write(number + " ");
+                }
+
+                Console.WriteLine($"Ammount of positive elements in array: {CountPositiveElementsInArray(array)}");
+            }
         }
 
-        private static int CountPositiveElementsInArray(int[] array)
+        private static int CountPositiveElementsInArray(int[] array, string outputFilePath = @"D:\Text Files\EPAM_Arrays\output.io")
         {
             Console.Write("Full array:\n=> ");
             int positiveElementCount = 0;
@@ -52,6 +64,11 @@ namespace LabWork_Arrays.Classes
                     positiveElementCount++;
             }
 
+            using (StreamWriter sw = File.CreateText(outputFilePath))
+            {
+                sw.Write("Positive element count: ");
+                sw.Write(positiveElementCount);
+            }
             Console.WriteLine();
             return positiveElementCount;
         }
