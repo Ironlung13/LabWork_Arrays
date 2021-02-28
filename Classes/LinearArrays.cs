@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.IO;
-using System.Configuration;
+using System.Text.RegularExpressions;
 
 namespace LabWork_Arrays.Classes
 {
