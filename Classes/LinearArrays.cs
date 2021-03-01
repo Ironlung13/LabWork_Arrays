@@ -7,7 +7,7 @@ namespace LabWork_Arrays.Classes
 {
     public static class LinearArrays
     {
-        public static void Task1Variant6(string inputFilePath = @"D:\Text Files\EPAM_Arrays\input.io")
+        public static void Task1Variant6(string inputFilePath = @"D:\Text Files\EPAM_Arrays\Linear Arrays\input.io")
         {
             if (!File.Exists(inputFilePath))
             {
@@ -52,7 +52,7 @@ namespace LabWork_Arrays.Classes
             Task1Variant6ManualInput(inputFilePath);
             return;
         }
-        private static void Task1Variant6ManualInput(string inputFilePath = @"D:\Text Files\EPAM_Arrays\input.io")
+        private static void Task1Variant6ManualInput(string inputFilePath = @"D:\Text Files\EPAM_Arrays\Linear Arrays\input.io")
         {
             Console.Write("Enter size of array\n=> ");
             int N;
@@ -96,7 +96,7 @@ namespace LabWork_Arrays.Classes
 
             Console.WriteLine($"Ammount of positive elements in array: {CountPositiveElementsInArray(array)}");
         }
-        private static int CountPositiveElementsInArray(int[] array, string outputFilePath = @"D:\Text Files\EPAM_Arrays\output.io")
+        private static int CountPositiveElementsInArray(int[] array, string outputFilePath = @"D:\Text Files\EPAM_Arrays\Linear Arrays\output.io")
         {
             Console.Write("Full array:\n=> ");
             int positiveElementCount = 0;
