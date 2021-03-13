@@ -12,7 +12,7 @@ namespace LabWork_Arrays.Classes
         {
             if (string.IsNullOrWhiteSpace(inputFilePath))
             {
-                inputFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Linear Arrays");
+                inputFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Array Files");
                 Directory.CreateDirectory(inputFilePath);
                 inputFilePath += @"\input.io";
             }
@@ -108,7 +108,7 @@ namespace LabWork_Arrays.Classes
         {
             if (string.IsNullOrWhiteSpace(outputFilePath))
             {
-                outputFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Linear Arrays");
+                outputFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Array Files");
                 Directory.CreateDirectory(outputFilePath);
                 outputFilePath += @"\output.io";
             }

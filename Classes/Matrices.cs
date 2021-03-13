@@ -10,7 +10,7 @@ namespace LabWork_Arrays.Classes
         {
             if (string.IsNullOrWhiteSpace(inputFilePath))
             {
-                inputFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Matrices");
+                inputFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Matrix Files");
                 Directory.CreateDirectory(inputFilePath);
                 inputFilePath += @"\input.io";
             }
@@ -57,7 +57,7 @@ namespace LabWork_Arrays.Classes
         {
             if (string.IsNullOrWhiteSpace(inputFilePath))
             {
-                inputFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Matrices");
+                inputFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Matrix Files");
                 Directory.CreateDirectory(inputFilePath);
                 inputFilePath += @"\input.io";
             }
@@ -80,7 +80,7 @@ namespace LabWork_Arrays.Classes
         {
             if (string.IsNullOrWhiteSpace(outputFilePath))
             {
-                outputFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Matrices");
+                outputFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Matrix Files");
                 Directory.CreateDirectory(outputFilePath);
                 outputFilePath += @"\output.io";
             }
