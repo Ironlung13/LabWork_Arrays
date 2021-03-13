@@ -2,13 +2,21 @@
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Linq;
+using System.Reflection;
 
 namespace LabWork_Arrays.Classes
 {
     public static class LinearArrays
     {
-        public static void Task1Variant6(string inputFilePath = @"D:\Text Files\EPAM_Arrays\Linear Arrays\input.io")
+        public static void Task1Variant6(string inputFilePath = null)
         {
+            if (string.IsNullOrWhiteSpace(inputFilePath))
+            {
+                inputFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Linear Arrays");
+                Directory.CreateDirectory(inputFilePath);
+                inputFilePath += @"\input.io";
+            }
+            
             if (!File.Exists(inputFilePath))
             {
                 Console.WriteLine($"File at [{inputFilePath}] doesn't exist! \nSwitching to manual input.");
@@ -52,7 +60,7 @@ namespace LabWork_Arrays.Classes
             Task1Variant6ManualInput(inputFilePath);
             return;
         }
-        private static void Task1Variant6ManualInput(string inputFilePath = @"D:\Text Files\EPAM_Arrays\Linear Arrays\input.io")
+        private static void Task1Variant6ManualInput(string inputFilePath)
         {
             Console.Write("Enter size of array\n=> ");
             int N;
@@ -96,8 +104,15 @@ namespace LabWork_Arrays.Classes
 
             Console.WriteLine($"Ammount of positive elements in array: {CountPositiveElementsInArray(array)}");
         }
-        private static int CountPositiveElementsInArray(int[] array, string outputFilePath = @"D:\Text Files\EPAM_Arrays\Linear Arrays\output.io")
+        private static int CountPositiveElementsInArray(int[] array, string outputFilePath = null)
         {
+            if (string.IsNullOrWhiteSpace(outputFilePath))
+            {
+                outputFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"Linear Arrays");
+                Directory.CreateDirectory(outputFilePath);
+                outputFilePath += @"\output.io";
+            }
+
             Console.Write("Full array:\n=> ");
             int positiveElementCount = 0;
             foreach (int number in array)

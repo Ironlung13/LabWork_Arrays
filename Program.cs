@@ -1,5 +1,5 @@
-﻿using System;
-using LabWork_Arrays.Classes;
+﻿using LabWork_Arrays.Classes;
+using System;
 
 namespace LabWork_Arrays
 {
@@ -14,9 +14,13 @@ namespace LabWork_Arrays
             switch (Console.ReadLine())
             {
                 case "1":
+                    //Если файл не существует, то запустится ввод вручную
+                    //Файл вывода всегда переписывается
+                    //Файлы создаются в output пути сборки (в подпапке)
                     LinearArrays.Task1Variant6();
                     break;
                 case "2":
+                    //То же самое для матриц
                     Matrices.Task1Variant6();
                     break;
                 default:
